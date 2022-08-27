@@ -17,14 +17,11 @@ Contains course code, number of units, course name, as well as what
 semester the course is offered in
 """
 class Course():
-    def __init__(self, courseCode: str, units: int, courseName: str, courseSite: str):
-        self.courseCode = courseCode
-        self.courseName = courseName
+    def __init__(self, course_code: str, units: int, course_name: str):
+        self.course_code = course_code
+        self.course_name = course_name
         self.units = units
-        self.courseSite = courseSite
-
         self.semester = self.find_semester()
-
         self.active = False
 
     def find_semester(self):
@@ -32,10 +29,10 @@ class Course():
         pass
 
     def get_courseCode(self):
-        return self.courseCode
+        return self.course_code
 
     def get_courseName(self):
-        return self.courseName
+        return self.course_name
 
     def get_units(self):
         return self.units
@@ -45,6 +42,12 @@ class Course():
 
     def is_active(self) -> bool:
         return self.active
+
+    def __repr__(self):
+        return f"Course({self.course_code}, {self.course_name}, {self.units}, {self.semester}, {self.active})"
+
+    def __str__(self):
+        return self.__repr__()
 
 
 class JoinedCourse:
@@ -66,22 +69,46 @@ class JoinedCourse:
     def is_valid(self) -> bool:
         return self.get_active_units() <= 1
 
+    def __repr__(self):
+        return f"JC({self.courses})"
+    
+    def __str__(self):
+        return self.__repr__()
+
 
 class And:
     def __init__(self, min: int, max: int, module_list):
         self.min = min
         self.max = max
         self.ll = module_list
+    
+    def __repr__(self):
+        return f"And(min={self.min}, max={self.max}, ll={self.ll})"
+    
+    def __str__(self):
+        return self.__repr__()
 
 class Or:
     def __init__(self, module_list):
         self.ll = module_list
+    
+    def __repr__(self):
+        return f"Or(ll={self.ll})"
+    
+    def __str__(self):
+        return self.__repr__()
 
 class Leaf:
     def __init__(self, min: int, max: int, joined_course_list: list[JoinedCourse]):
         self.min = min
         self.max = max
         self.ll = joined_course_list
+    
+    def __repr__(self):
+        return f"Leaf(min={self.min}, max={self.max}, ll={self.ll})"
+
+    def __str__(self):
+        return self.__repr__()
 
 
 class Module:
@@ -103,6 +130,12 @@ class Module:
                 and self.min <= self.rec.get_active_units() <= self.max
         elif type(self.rec) == Or:
             return any(m.is_valid() for m in self.rec.ll)
+    
+    def __repr__(self):
+        return f"Module(name=\"{self.name}\", rec={self.rec})"
+    
+    def __str__(self):
+        return self.__repr__()
 
 
 # """
