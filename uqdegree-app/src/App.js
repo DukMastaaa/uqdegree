@@ -1,24 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
+//import MyButton from './Components/MyButton.js'
+import Table from './Components/Table';
+import { Update } from './Components/Update';
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(0);
 
-  useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    });
-  }, []);
+  const list = [
+    { title: '', id: 0 },
+    { title: 'COSC3500', id: 1 },
+    { title: 'MATH1071', id: 2 },
+    { title: 'ECON1010', id: 3 },
+  ];
 
   return (
     <div className="App">
-      <header className="App-header">
-
-        ... no changes in this part ...
-
-        <p>The current time is {currentTime}.</p>
-      </header>
+      <Table products = {list}/>
     </div>
   );
 }
