@@ -44,7 +44,7 @@ class Course():
         return self.active
 
     def __repr__(self):
-        return f"Course({self.course_code}, {self.course_name}, {self.units}, {self.semester}, {self.active})"
+        return f"Course(\"{self.course_code}\", \"{self.course_name}\", {self.units}, {self.active})"
 
     def __str__(self):
         return self.__repr__()

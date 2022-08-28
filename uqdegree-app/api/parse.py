@@ -8,6 +8,11 @@ import logic
 units_pattern = re.compile(r"(?:(\d+) to )?(\d+) units")
 
 def units_str_to_minmax(units: str) -> Optional[tuple[int, int]]:
+    # why do they switch up the wording????
+    # "Complete one Specialisation from the following:"
+    if "one" in units:
+        return 1, 1
+    
     result = re.search(units_pattern, units)
     if result is None:
         return None
@@ -88,6 +93,23 @@ def parse_selection_list(rows: ResultSet[PageElement], data: logic.Module) -> No
             parse_course_button(row, jc)
         data.rec.ll.append(jc)
 
+def find_module_by_name(title: str, data: logic.Module) -> logic.Module:
+    """
+    Returns a module in the top level or 1st child level
+    of data.rec.ll which has the same name as title.
+    Raises ValueError if no such module is present.
+    """
+    for module in data.rec.ll:
+        if title.strip() == module.name:
+            return module
+        # this code is so bad lmao
+        elif type(module.rec) == logic.Or or type(module.rec) == logic.And:
+            for submodule in module.rec.ll:
+                if title.strip() == submodule.name:
+                    return submodule
+    else:
+        raise ValueError("part present that isn't in initial program-rules__description")
+
 def recursive_descent(pos: Tag, data: logic.Module) -> None:
     """
     Does the recursive descent step.
@@ -112,16 +134,12 @@ def recursive_descent(pos: Tag, data: logic.Module) -> None:
             title = part.find("div", class_="part__header").string
             
             ### THIS IS JUST TO MAKE THINGS EASIER FOR US NOW
-            if "major" in title.lower() or "minor" in title.lower():
-                continue
+            # if "major" in title.lower() or "minor" in title.lower():
+            #     continue
             ### DELETE ABOVE IF NECESSARY
             
-            for module in data.rec.ll:
-                if title.strip() == module.name:
-                    part_module = module
-                    break
-            else:
-                raise ValueError("part present that isn't in initial program-rules__description")
+            part_module = find_module_by_name(title.strip(), data)
+            
             # now that we now the relevant module, we recurse,
             # with our pos set to program-rules__content.
             content = part.find("div", class_="part__content")
@@ -164,10 +182,15 @@ def structure_to_course_dict(data: logic.Module) -> dict[str, logic.Course]:
     return course_dict
 
 if __name__ == "__main__":
-    url = "https://my.uq.edu.au/programs-courses/requirements/program/2460/2023"
+    # mathematics:
+    # url = "https://my.uq.edu.au/programs-courses/requirements/program/2460/2023"
+
+    # engineering:
+    url = "https://my.uq.edu.au/programs-courses/requirements/program/2455/2022"
+    
     soup = url_to_soup(url)
     data = soup_to_structure(soup)
-    print(data)
+    # with open("dump.txt", "w") as f:
+    #     f.write(str(data))
     course_dict = structure_to_course_dict(data)
-    print(course_dict)
     print(list(course_dict.keys()))
