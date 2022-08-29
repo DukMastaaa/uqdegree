@@ -1,6 +1,6 @@
 import DropDown from "./DropDown"
 
-function Table({products}) {
+function Table({useShared}) {
 
     return(
         <table>
@@ -16,29 +16,29 @@ function Table({products}) {
         <tr>
             <th></th>
             <th>Sem One</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         <tr>
             <th></th>
             <th>Sem Two</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         <tr>
             <th></th>
             <th>Summer Sem</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         <tr>
             <th>Year Two</th>
@@ -52,29 +52,29 @@ function Table({products}) {
         <tr>
             <th></th>
             <th>Sem One</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         <tr>
             <th></th>
             <th>Sem Two</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         <tr>
             <th></th>
             <th>Summer Sem</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         <tr>
             <th>Year Three</th>
@@ -88,29 +88,29 @@ function Table({products}) {
         <tr>
             <th></th>
             <th>Sem One</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         <tr>
             <th></th>
             <th>Sem Two</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         <tr>
             <th></th>
             <th>Summer Sem</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         <tr>
             <th>Year Four</th>
@@ -124,29 +124,29 @@ function Table({products}) {
         <tr>
             <th></th>
             <th>Sem One</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         <tr>
             <th></th>
             <th>Sem Two</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         <tr>
             <th></th>
             <th>Summer Sem</th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
-            <th><DropDown courses = {products} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
+            <th><DropDown useShared={useShared} /></th>
         </tr>
         </table>
     )

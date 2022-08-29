@@ -11,3 +11,14 @@ def choose_course():
     v = request.get_json()
     print(v)
     return v
+
+@app.route('/courses')
+# should return a list of course codes i.e
+# ['COSC2500', 'MATH1071', 'MATH1061', 'CSSE1001']
+def queryCourses():
+    print(getCourses())
+    return jsonify(getCourses())
+
+def getCourses():
+    list = ['csse1001', 'math1071']
+    return list
